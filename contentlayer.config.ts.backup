@@ -1,0 +1,24 @@
+import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+
+export const Writing = defineDocumentType(() => ({
+  name: 'Writing',
+  filePathPattern: `**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    summary: { type: 'string', required: true },
+    tags: { type: 'list', of: { type: 'string' }, required: true },
+  },
+  computedFields: {
+    url: { 
+      type: 'string', 
+      resolve: (writing) => `/writings/${writing._raw.flattenedPath}` 
+    },
+  },
+}))
+
+export default makeSource({ 
+  contentDirPath: 'content', 
+  documentTypes: [Writing] 
+})

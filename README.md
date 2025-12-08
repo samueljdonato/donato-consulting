@@ -1,3 +1,30 @@
+# Donato Consulting Website
+
+Professional consulting website built with Next.js 14, TypeScript, and MDX.
+
+## Features
+- MDX-powered writing system with syntax highlighting
+- Automatic GitHub project showcase
+- Responsive design with Tailwind CSS
+- Type-safe development with TypeScript
+
+## Tech Stack
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- MDX for content
+- GitHub API integration
+
+## Local Development
+```bash
+npm install
+cp .env.example .env.local
+# Add your GitHub token to .env.local
+npm run dev
+```
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

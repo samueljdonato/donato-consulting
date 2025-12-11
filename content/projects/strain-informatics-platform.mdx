@@ -1,0 +1,65 @@
+---
+title: "Fungal Strain Informatics Platform"
+---
+
+## Overview
+
+During my time at Ecovative, I architected and built a comprehensive strain management system that became the backbone of the company's R&D and production operations. This platform tracked over 700 fungal strain lines, integrating genomic data, growth metrics, and production outcomes.
+
+## Key Features
+
+### Strain Banking System
+- Automated tracking of strain lineage and genealogy
+- Integration with -80°C freezer storage locations
+- QR code-based sample identification
+- Contamination tracking and quarantine protocols
+
+### Data Architecture
+- PostgreSQL database with optimized schema for biological relationships
+- RESTful API for cross-platform access
+- Real-time data synchronization across laboratory sites
+- Automated backup and version control
+
+### Analytics Dashboard
+Built interactive dashboards providing:
+- Strain performance metrics across different growth conditions
+- Genealogy visualization tools
+- Contamination heat maps
+- Production yield predictions
+
+## Technical Implementation
+```python
+# Example: Strain lineage tracking algorithm
+def trace_lineage(strain_id, generations=5):
+    """
+    Recursively trace strain ancestry up to n generations
+    """
+    lineage = []
+    current = strain_id
+    
+    for gen in range(generations):
+        parent = db.query(
+            "SELECT parent_id FROM strains WHERE id = ?", 
+            current
+        )
+        if not parent:
+            break
+        lineage.append(parent)
+        current = parent
+    
+    return lineage
+```
+
+## Impact
+
+- **Reduced** contamination rates by 45% through predictive analytics
+- **Accelerated** strain selection process from weeks to days
+- **Enabled** data-driven decision making for production scale-up
+- **Supported** successful commercialization of multiple product lines
+
+## Technologies Used
+
+- **Backend**: Python, Flask, PostgreSQL
+- **Frontend**: React, D3.js for visualizations
+- **Infrastructure**: Docker, AWS
+- **Data Processing**: Pandas, NumPy, Scikit-learn
